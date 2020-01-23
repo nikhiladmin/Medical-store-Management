@@ -1,18 +1,6 @@
 #include<stdio.h>
 #include "addNewMedicine.h"
 
-struct medicine
-{
-    char MedName[40];
-    char expiryDate[15];
-    char manufactureDate[15];
-    float price;
-    int packages;
-    int medInPackage;
-    int racks;
-};
-struct medicine temp;
-
 void medListHeading()
 {
     gotoxy(35,3);
@@ -23,7 +11,7 @@ void medListHeading()
         printf("%c",223);
     }
 }
-table()
+void table()
 {
     gotoxy(2,5);
     for(int i=1; i<=75; i++)
@@ -75,13 +63,13 @@ void product_list()
         printf("List not found OR List is Empty...!");
     }
     int i=0;
-    while(fscanf(fp,"%s   %s   %s   %.2f   %i   %i\n",temp.MedName,temp.expiryDate,temp.manufactureDate,temp.price,temp.packages,temp.medInPackage)!=EOF)
+    while(fscanf(fp,"%s %s %s %f %i %i\n",temp.MedName,temp.expiryDate,temp.manufactureDate,&temp.price,&temp.packages,&temp.medInPackage)!=EOF)
     {
         gotoxy(4,9+i);
         printf("%s",temp.MedName);
         gotoxy(33,9+i);
         printf("%s",temp.expiryDate);
-        //gotoxy(18,8+i);
+        //gotoxy(18,9+i);
        // printf("%s",temp.manufactureDate);
         gotoxy(49,9+i);
         printf("%.2f",temp.price);

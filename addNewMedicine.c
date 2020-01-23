@@ -1,17 +1,8 @@
 #include "addNewMedicine.h"
 #include <stdio.h>
 #include <stdlib.h>
-struct medicine
-{
-    char MedName[40];
-    char expiryDate[15];
-    char manufactureDate[15];
-    float price;
-    int packages;
-    int medInPackage;
-    int racks;
-};
-struct medicine temp;
+
+
 
 void addNewMedHeading()
 {
@@ -46,11 +37,12 @@ void newMedForm(                                                                
     gotoxy(40,14);
     scanf("%s",&temp.manufactureDate);
     gotoxy(27,17);
-    scanf("%f",&temp.price);
+    scanf("%.2f",&temp.price);
     gotoxy(39,20);
-    scanf("%i",&temp.packages);
+    fflush(stdin);
+    scanf("%d",&temp.packages);
     gotoxy(50,23);
-    scanf("%i",&temp.medInPackage);
+    scanf("%d",&temp.medInPackage);
     gotoxy(12,26);
 
     printf("1. Save      2. Cancel");
@@ -67,14 +59,16 @@ void newMedForm(                                                                
         {
             printf("Data not added ...");
         }
-        fprintf(fp,"%s   %s   %s   %.2f   %i   %i\n",temp.MedName,temp.expiryDate,temp.manufactureDate,temp.price,temp.packages,temp.medInPackage);
+        fprintf(fp,"%s %s %s %.2f %i %i\n",temp.MedName,temp.expiryDate,temp.manufactureDate,temp.price,temp.packages,temp.medInPackage);
         fclose(fp);
 
         char c;
         gotoxy(12,31);
         printf("More Entries [Y/N]: ");
         gotoxy(33,31);
+
         scanf("%c",&c);
+
         if(c=='Y'||c=='y')
         {
             system("cls");

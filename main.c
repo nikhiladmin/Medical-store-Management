@@ -3,10 +3,24 @@
 #include <conio.h>
 #include <windows.h>
 
+/* struct medicine
+{
+    char MedName[40];
+    char expiryDate[15];
+    char manufactureDate[15];
+    float price;
+    int packages;
+    int medInPackage;
+    int racks;
+};
+struct medicine temp;
+*/
 //User defined Directive
 #include "saleMedicine.h"
 #include "addNewMedicine.h"
 #include "accounts.h"
+
+
 
 COORD coord = {0, 0};
 void gotoxy(int x, int y){
@@ -31,6 +45,7 @@ int main()
     system("cls");
     box();
     SaleHeading();
+    searchingMed();
     break;
    }
    case 2:{
