@@ -38,7 +38,7 @@ void searchingMed()
     {
         printf("Data not found ");
     }
-    while(fscanf(fp,"%s %s %s %f %i %i\n",temp.MedName,temp.expiryDate,temp.manufactureDate,&temp.price,&temp.packages,&temp.medInPackage)!=EOF)
+    while(fscanf(fp,"%s %s %s %f %d %d\n",temp.MedName,temp.expiryDate,temp.manufactureDate,&temp.price,&temp.packages,&temp.medInPackage)!=EOF)
     {
         char t[40];
         strcpy(t,temp.MedName);
@@ -84,6 +84,7 @@ void searchingMed()
             {
                 printf("%c",196);
             }
+
             gotoxy(4,14);
             printf("%s",temp.MedName);
             gotoxy(33,14);

@@ -1,7 +1,8 @@
 #include "addNewMedicine.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
+#include <ctype.h>
 
 
 void addNewMedHeading()
@@ -37,14 +38,15 @@ void newMedForm(                                                                
     gotoxy(40,14);
     scanf("%s",&temp.manufactureDate);
     gotoxy(27,17);
-    scanf("%.2f",&temp.price);
+    scanf("%f",&temp.price);
     gotoxy(39,20);
-    fflush(stdin);
+   // fflush(stdin);
     scanf("%d",&temp.packages);
     gotoxy(50,23);
     scanf("%d",&temp.medInPackage);
     gotoxy(12,26);
-
+    address(temp.MedName);
+   // printf("%s",temp.racks);
     printf("1. Save      2. Cancel");
     int inp;
     gotoxy(12,29);
@@ -59,14 +61,14 @@ void newMedForm(                                                                
         {
             printf("Data not added ...");
         }
-        fprintf(fp,"%s %s %s %.2f %i %i\n",temp.MedName,temp.expiryDate,temp.manufactureDate,temp.price,temp.packages,temp.medInPackage);
+        fprintf(fp,"%s %s %s %f %d %d %s\n",temp.MedName,temp.expiryDate,temp.manufactureDate,temp.price,temp.packages,temp.medInPackage,temp.racks);
         fclose(fp);
 
-        char c;
+        char c="y";
         gotoxy(12,31);
         printf("More Entries [Y/N]: ");
         gotoxy(33,31);
-
+        fflush(stdin);
         scanf("%c",&c);
 
         if(c=='Y'||c=='y')
@@ -86,6 +88,31 @@ void newMedForm(                                                                
         main();
     }
 
+}
+
+void address(char medicineName[40]){
+    char pos=medicineName[0];
+    pos=toupper(pos);
+    char random = (char)(rand()%5+49);
+    char racks[5];
+    if(pos>=65&&pos<=72||pos>=97&&pos<=104){
+         strcpy(racks,"R");
+         strncat(racks,&pos,1);
+         strcat(racks,"-");
+         strncat(racks,&random,1);
+    }else if(pos>=73&&pos<=81||pos>=105&&pos<=113){
+         strcpy(racks,"B");
+         strncat(racks,&pos,1);
+         strcat(racks,"-");
+         strncat(racks,&random,1);
+    }else if(pos>=82&&pos<=90||pos>=114&&pos<=122){
+          strcpy(racks,"L");
+         strncat(racks,&pos,1);
+         strcat(racks,"-");
+         strncat(racks,&random,1);
+  }
+
+   strcpy(temp.racks,racks);
 }
 
 

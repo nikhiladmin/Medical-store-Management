@@ -4,6 +4,7 @@
 void addNewMedHeading();
 void h();
 void newMedForm();
+void address();
 struct medicine
 {
     char MedName[40];
@@ -12,7 +13,7 @@ struct medicine
     float price;
     int packages;
     int medInPackage;
-    int racks;
+    char racks[5];
 };
 struct medicine temp;
 #endif // ADD_NEW_MEDICINE_H_INCLUDED

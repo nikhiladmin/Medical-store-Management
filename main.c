@@ -78,6 +78,7 @@ int main()
    }
    }
     gotoxy(0,36);
+   // getch();
     return 0;
 }
 

@@ -63,22 +63,24 @@ void product_list()
         printf("List not found OR List is Empty...!");
     }
     int i=0;
-    while(fscanf(fp,"%s %s %s %f %i %i\n",temp.MedName,temp.expiryDate,temp.manufactureDate,&temp.price,&temp.packages,&temp.medInPackage)!=EOF)
+    while(fscanf(fp,"%s %s %s %f %i %i %s\n",temp.MedName,temp.expiryDate,temp.manufactureDate,&temp.price,&temp.packages,&temp.medInPackage,temp.racks)!=EOF)
     {
         gotoxy(4,9+i);
         printf("%s",temp.MedName);
-        gotoxy(33,9+i);
+        gotoxy(35,9+i);
         printf("%s",temp.expiryDate);
-        //gotoxy(18,9+i);
-       // printf("%s",temp.manufactureDate);
-        gotoxy(49,9+i);
+        gotoxy(22,9+i);
+        printf("%s",temp.racks);
+        gotoxy(52,9+i);
         printf("%.2f",temp.price);
-        gotoxy(65,9+i);
+        gotoxy(68,9+i);
         printf("%i",temp.packages);
         i++;
     }
-
-
+    fclose(fp);
+    if(getche()){
+        main();
+    }
 }
 
 int accounts_manu()

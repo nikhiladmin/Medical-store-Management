@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1579520761 source:e:\c\cpp\medical store management\main.c
+1579782543 source:e:\c\cpp\medical store management\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -8,7 +8,7 @@
 	"addNewMedicine.h"
 	"accounts.h"
 
-1579778556 source:e:\c\cpp\medical store management\salemedicine.c
+1579796503 source:e:\c\cpp\medical store management\salemedicine.c
 	"saleMedicine.h"
 	"addNewMedicine.h"
 	<ctype.h>
@@ -20,14 +20,16 @@
 
 1579530023 e:\c\cpp\medical store management\salemedicine.h
 
-1579518968 e:\c\cpp\medical store management\addnewmedicine.h
+1579809060 e:\c\cpp\medical store management\addnewmedicine.h
 
-1579779391 source:e:\c\cpp\medical store management\addnewmedicine.c
+1579868086 source:e:\c\cpp\medical store management\addnewmedicine.c
 	"addNewMedicine.h"
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
+	<ctype.h>
 
-1579778295 source:e:\c\cpp\medical store management\accounts.c
+1579869140 source:e:\c\cpp\medical store management\accounts.c
 	<stdio.h>
 	"addNewMedicine.h"
 
