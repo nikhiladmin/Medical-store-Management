@@ -11,9 +11,9 @@ struct medicine
     char expiryDate[15];
     char manufactureDate[15];
     float price;
-    int packages;
-    int medInPackage;
+    int quantity;
     char racks[5];
 };
 struct medicine temp;
+
 #endif // ADD_NEW_MEDICINE_H_INCLUDED

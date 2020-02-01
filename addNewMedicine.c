@@ -16,8 +16,7 @@ void addNewMedHeading()
     }
 }
 
-void newMedForm(                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          )
-{
+void newMedForm(){
     gotoxy(12,8);
     printf("Enter Name : ");
     gotoxy(12,11);
@@ -27,9 +26,7 @@ void newMedForm(                                                                
     gotoxy(12,17);
     printf("Enter Price : ");
     gotoxy(12,20);
-    printf("Enter Number of Package : ");
-    gotoxy(12,23);
-    printf("Enter Number of Medicine in Package : ");
+    printf("Quantity : ");
 
     gotoxy(26,8);
     scanf("%s",&temp.MedName);
@@ -39,21 +36,21 @@ void newMedForm(                                                                
     scanf("%s",&temp.manufactureDate);
     gotoxy(27,17);
     scanf("%f",&temp.price);
-    gotoxy(39,20);
+    gotoxy(24,20);
    // fflush(stdin);
-    scanf("%d",&temp.packages);
-    gotoxy(50,23);
-    scanf("%d",&temp.medInPackage);
-    gotoxy(12,26);
+    scanf("%d",&temp.quantity);
+
     address(temp.MedName);
    // printf("%s",temp.racks);
+   gotoxy(12,27);
     printf("1. Save      2. Cancel");
-    int inp;
+    char inp;
     gotoxy(12,29);
     printf("Choose Option : ");
+    enter:
     gotoxy(29,29);
-    scanf("%i",&inp);
-    if(inp==1)
+    inp=getche();
+    if(inp=='1')
     {
         FILE *fp;
         fp=fopen("Medicine.DAT","a");
@@ -61,15 +58,15 @@ void newMedForm(                                                                
         {
             printf("Data not added ...");
         }
-        fprintf(fp,"%s %s %s %f %d %d %s\n",temp.MedName,temp.expiryDate,temp.manufactureDate,temp.price,temp.packages,temp.medInPackage,temp.racks);
+        fprintf(fp,"%s %s %s %f %d %s\n",temp.MedName,temp.expiryDate,temp.manufactureDate,temp.price,temp.quantity,temp.racks);
         fclose(fp);
 
-        char c="y";
+        char c;
         gotoxy(12,31);
         printf("More Entries [Y/N]: ");
+again:
         gotoxy(33,31);
-        fflush(stdin);
-        scanf("%c",&c);
+        c=getche();
 
         if(c=='Y'||c=='y')
         {
@@ -78,14 +75,22 @@ void newMedForm(                                                                
             addNewMedHeading();
             newMedForm();
         }
-        else
+        else if(c=='N'||c=='n')
         {
             main();
+        }else{
+            gotoxy(50,31);
+            printf("Wrong input !");
+            goto again;
         }
     }
-    else if(inp==2)
+    else if(inp=='2')
     {
         main();
+    }else{
+        gotoxy(50,29);
+    printf("Wrong input !");
+        goto enter;
     }
 
 }
