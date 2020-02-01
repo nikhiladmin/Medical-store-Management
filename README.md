@@ -1,6 +1,6 @@
 # Medical-store-Management
 
-## C programmming project :- 
+## C programming project :- 
 \
 **feature:-**
 1. Add medicine
