@@ -1,15 +1,9 @@
 #include<stdio.h>
 #include<assert.h>
+#include "accounts.h"
 #include "addNewMedicine.h"
 #include "saleMedicine.h"
-
-struct dealer{
- char name[40];
- char number[11];
- char email[20];
- char address[40]
-};
-struct dealer temp1;
+#include "validation.h"
 
 void medListHeading(){
     gotoxy(35,3);
@@ -102,7 +96,7 @@ int accounts_manu(){
     gotoxy(20,14);
     printf("4 . Month Selling");
     gotoxy(20,16);
-    printf("5 . Main Manu");
+    printf("5 . Main Menu");
 
        enter:
     gotoxy(20,20);
@@ -174,22 +168,23 @@ void addDealer(){
     printf("Address : ");
 
     gotoxy(20,8);
-    scanf("%s",&temp1.name);
+    nameValidation(temp1.name);
     gotoxy(28,11);
-    scanf("%s",&temp1.number);
+    numberValidation(temp1.number);
     gotoxy(24,14);
     scanf("%s",&temp1.email);
     gotoxy(23,17);
-    scanf("%s",&temp1.address);
+    addressValidation(temp1.address);
+
     gotoxy(12,20);
 
     printf("1. Save      2. Cancel");
-    int inp;
+    char inp;
     gotoxy(12,22);
     printf("Choose Option : ");
     gotoxy(29,22);
-    scanf("%i",&inp);
-    if(inp==1)
+    inp=getche();
+    if(inp=='1')
     {
         FILE *fp;
         fp=fopen("Dealer.DAT","a");
@@ -200,12 +195,12 @@ void addDealer(){
         fprintf(fp,"%s %s %s %s\n",temp1.name,temp1.number,temp1.email,temp1.address);
         fclose(fp);
 
-        char c="y";
+        char c;
         gotoxy(12,24);
         printf("More Entries [Y/N]: ");
         gotoxy(33,24);
-        fflush(stdin);
-        scanf("%c",&c);
+
+        c=getche();
 
         if(c=='Y'||c=='y')
         {
@@ -219,7 +214,7 @@ void addDealer(){
             accounts_manu();
         }
     }
-    else if(inp==2)
+    else if(inp=='2')
     {
         main();
     }

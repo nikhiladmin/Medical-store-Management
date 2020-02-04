@@ -116,6 +116,18 @@ void expiredTable(){
 
 
 }
+void sort(int *a,int line){
+    int temp;
+    for(int i=0;i<6;i++){
+        for(int j=0;j<6-i;j++){
+            if(a[j]>a[j+1]){
+              temp =a[j];
+              a[j]=a[j+1];
+              a[j+1]=temp;
+            }
+        }
+    }
+}
 void ExpiredFile()
 {
     int daysRemaining;
@@ -124,6 +136,7 @@ void ExpiredFile()
     int day1, month1, year1;
     char m1[3],y1[5];
     int lineCount=0;
+    int arr[20];
     //Today Date
     time_t now;
     time(&now);
@@ -163,6 +176,7 @@ void ExpiredFile()
         if(daysRemaining<0){
             daysRemaining=0;
         }
+        arr[lineCount]=daysRemaining;
         fprintf(fpex,"%s %s %d %f %d %s\n",temp.MedName,temp.expiryDate,daysRemaining,temp.price,temp.quantity,temp.racks);
     lineCount++;
     }
@@ -173,8 +187,35 @@ void ExpiredFile()
     //FILE *fpsort;
     fpexp = fopen("Expired.DAT","r");
 //    fpsort =fopen("temp.DAT","r");
+//    int counter=0;
+//    while(fscanf(fpexp,"%s %s %d %f %d %s\n",temp.MedName,temp.expiryDate,&daysRemaining,&temp.price,&temp.quantity,temp.racks)!=EOF)
+//        {
+//        gotoxy(7,10+counter);
+//        printf("%s",temp.MedName);
+//        gotoxy(20,10+counter);
+//        printf("%s",temp.racks);
+//        gotoxy(30,10+counter);
+//        printf("%s",temp.expiryDate);
+//        gotoxy(45,10+counter);
+//        printf("%.2f",temp.price);
+//        gotoxy(57,10+counter);
+//        printf("%d",temp.quantity);
+//        gotoxy(70,10+counter);
+//        printf("%d",daysRemaining);
+//        counter++;
+//    }
+    sort(arr,lineCount);
+//    if(getche())
+//    {
+//        main();
+//    }
+
     int counter=0;
-    while(fscanf(fpexp,"%s %s %d %f %d %s\n",temp.MedName,temp.expiryDate,&daysRemaining,&temp.price,&temp.quantity,temp.racks)!=EOF){
+    for(int i=0;i<lineCount;i++){
+            rewind(fpexp);
+        while(fscanf(fpexp,"%s %s %d %f %d %s\n",temp.MedName,temp.expiryDate,&daysRemaining,&temp.price,&temp.quantity,temp.racks)!=EOF)
+        {
+        if(arr[i]==daysRemaining){
         gotoxy(7,10+counter);
         printf("%s",temp.MedName);
         gotoxy(20,10+counter);
@@ -188,9 +229,12 @@ void ExpiredFile()
         gotoxy(70,10+counter);
         printf("%d",daysRemaining);
         counter++;
+        }
+        }
     }
     if(getche())
     {
         main();
     }
+
 }

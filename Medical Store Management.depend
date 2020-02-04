@@ -1,11 +1,12 @@
 # depslib dependency file v1.0
-1580551286 source:e:\c\cpp\medical store management\main.c
+1580796121 source:e:\c\cpp\medical store management\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
 	<windows.h>
 	<process.h>
 	<assert.h>
+	"validation.h"
 	"saleMedicine.h"
 	"addNewMedicine.h"
 	"accounts.h"
@@ -26,29 +27,37 @@
 
 1580410436 e:\c\cpp\medical store management\salemedicine.h
 
-1580408472 e:\c\cpp\medical store management\addnewmedicine.h
+1580650075 e:\c\cpp\medical store management\addnewmedicine.h
 
-1580462464 source:e:\c\cpp\medical store management\addnewmedicine.c
+1580793527 source:e:\c\cpp\medical store management\addnewmedicine.c
+	"validation.h"
 	"addNewMedicine.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 
-1580548248 source:e:\c\cpp\medical store management\accounts.c
+1580734656 source:e:\c\cpp\medical store management\accounts.c
 	<stdio.h>
 	<assert.h>
+	"accounts.h"
 	"addNewMedicine.h"
 	"saleMedicine.h"
+	"validation.h"
 
-1580460268 e:\c\cpp\medical store management\accounts.h
+1580733469 e:\c\cpp\medical store management\accounts.h
 
 1580549304 e:\c\cpp\medical store management\expired.h
 
-1580551956 source:e:\c\cpp\medical store management\expired.c
+1580737785 source:e:\c\cpp\medical store management\expired.c
 	"Expired.h"
 	"addNewMedicine.h"
 	<time.h>
 	<stdio.h>
 	<string.h>
+
+1580734318 e:\c\cpp\medical store management\validation.h
+
+1580793570 source:e:\c\cpp\medical store management\validation.c
+	"validation.h"
 

@@ -6,10 +6,12 @@
 #include <assert.h>
 
 //User defined Directive
+#include "validation.h"
 #include "saleMedicine.h"
 #include "addNewMedicine.h"
 #include "accounts.h"
 #include "Expired.h"
+
 
 
 COORD coord = {0, 0};
@@ -26,6 +28,7 @@ void box();
 void main_heading();
 void todaySelling();
 void frontAnimation();
+void about();
 
 int main()
 {
@@ -81,6 +84,8 @@ int main()
     }
     case '6':
     {
+        system("cls");
+        about();
         break;
     }
     }
@@ -181,7 +186,7 @@ char main_manu()
     gotoxy(20,12);
     printf("3 . Today Selling ");
     gotoxy(20,14);
-    printf("4 . Days remaining For Expired");
+    printf("4 . Expiry Days Remaining");
     gotoxy(20,16);
     printf("5 . Accounts");
     gotoxy(20,18);
@@ -270,4 +275,74 @@ void frontAnimation()
         Sleep(40);
     }
     Sleep(500);
+}
+void about(){
+box();
+gotoxy(34,3);
+    char a[]="ABOUT US";
+    for(int i=0; i<strlen(a); i++)
+    {
+        printf("%c",a[i]);
+        Sleep(40);
+    }
+
+    for(int i=0; i<10; i++)
+    {
+        gotoxy(42-i,5);
+        printf("%c",223);
+        Sleep(40);
+    }
+
+    gotoxy(9,7);
+    printf("My Journey to keep you safe and more comfortable in your work.");
+    gotoxy(8,8);
+    for(int i=0; i<64; i++)
+    {
+        printf("%c",196);
+    }
+    gotoxy(10,10);
+    printf("This software allow you to easily manage your Medical store.");
+    gotoxy(9,11);
+    for(int i=0; i<62; i++)
+    {
+        printf("%c",196);
+    }
+    gotoxy(27,13);
+    printf("Provide Digital Records");
+    gotoxy(26,14);
+    for(int i=0; i<26; i++)
+    {
+        printf("%c",196);
+    }
+    gotoxy(34,17);
+    printf("DEVELOPER");
+    gotoxy(33,18);
+    for(int i=0; i<11; i++)
+    {
+        printf("%c",196);
+    }
+    gotoxy(30,19);
+    printf("NIKHIL KUMAR SINGH");
+
+    gotoxy(30,22);
+    printf("HOW MAY I HELP YOU");
+    gotoxy(29,23);
+    for(int i=0; i<20; i++)
+    {
+        printf("%c",196);
+    }
+    gotoxy(28,24);
+    printf("Contect No - 8349696112");
+
+    gotoxy(34,26);
+    printf("THANK YOU");
+    gotoxy(33,27);
+    for(int i=0; i<11; i++)
+    {
+        printf("%c",196);
+    }
+
+    if(_getch()){
+        main();
+    }
 }

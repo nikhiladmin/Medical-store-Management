@@ -1,4 +1,6 @@
+#include "validation.h"
 #include "addNewMedicine.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -17,6 +19,7 @@ void addNewMedHeading()
 }
 
 void newMedForm(){
+
     gotoxy(12,8);
     printf("Enter Name : ");
     gotoxy(12,11);
@@ -29,11 +32,11 @@ void newMedForm(){
     printf("Quantity : ");
 
     gotoxy(26,8);
-    scanf("%s",&temp.MedName);
+    nameValidation(temp.MedName);
     gotoxy(33,11);
-    scanf("%s",&temp.expiryDate);
+    dateValidation(temp.expiryDate);
     gotoxy(40,14);
-    scanf("%s",&temp.manufactureDate);
+    dateValidation(temp.manufactureDate);
     gotoxy(27,17);
     scanf("%f",&temp.price);
     gotoxy(24,20);
@@ -70,6 +73,7 @@ again:
 
         if(c=='Y'||c=='y')
         {
+
             system("cls");
             box();
             addNewMedHeading();

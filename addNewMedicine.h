@@ -7,7 +7,7 @@ void newMedForm();
 void address();
 struct medicine
 {
-    char MedName[40];
+    char MedName[41];
     char expiryDate[15];
     char manufactureDate[15];
     float price;

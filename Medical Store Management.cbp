@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Expired.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Expired.h" />
 		<Unit filename="accounts.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -46,6 +50,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="saleMedicine.h" />
+		<Unit filename="validation.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="validation.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
