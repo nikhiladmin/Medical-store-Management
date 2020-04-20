@@ -35,7 +35,7 @@ int main()
     static int i=0;
     if(i==0)
     {
-      //  frontAnimation();
+        frontAnimation();
         i++;
     }
     system("cls");
