@@ -2,7 +2,7 @@
 
 ## C programming project :- 
 \
-**feature:-**
+**Feature:-**
 1. Add medicine
 2. Expiry Days remaining
 3. Today Saling
